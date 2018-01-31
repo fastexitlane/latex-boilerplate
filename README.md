@@ -74,6 +74,7 @@ The predefined document layout is the following:
 
 * page size: A4
 * borders: left=40mm, right=20mm, top=25mm, bottom=25mm (using `geometry`)
+* Roman page numbering is used for introductory pages; arabic page numbering starts with first content chapter (see `main.tex` for that)
 
 Further configuration can be done in `config/config.tex`.
 
