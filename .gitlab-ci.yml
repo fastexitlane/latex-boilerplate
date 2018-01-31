@@ -1,0 +1,13 @@
+stages:
+  - build
+
+pdf:
+  stage: build
+  tags:
+    - latex
+  artifacts:
+    paths:
+      - main.pdf
+    expire_in: 2d
+  script:
+    - latexmk -pdf

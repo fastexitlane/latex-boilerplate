@@ -1,0 +1,75 @@
+\input{config/config}
+
+% Makros
+\newcommand{\dokumententyp}{Dokumententyp}
+\newcommand{\abgabedatum}{\today} 
+\newcommand{\ort}{Ort} 
+\newcommand{\dokumententitel}{Titel}
+\newcommand{\dokumentenuntertitel}{Untertitel}
+\newcommand{\dokumentenautor}{Autor}
+\newcommand{\matrikelnr}{Matrikel-Nr.}
+\newcommand{\dokumentenautoradresse}{Adresse}
+\newcommand{\dokumentenpruefer}{Prüfer}
+\newcommand{\studiengang}{Studiengang}
+\newcommand{\studiengruppe}{Studiengruppe}
+\newcommand{\institution}{Fachhochschule der Wirtschaft (FHDW)\\Bergisch Gladbach}
+
+% PDF-Setup
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle=\dokumententitel,
+  pdfauthor=\dokumentenautor
+}
+
+\begin{document}
+  %%%%%%%%%%%%%%%
+  %% Deckblatt %%
+  %%%%%%%%%%%%%%%
+  \input{config/title}
+
+  %%%%%%%%%%%%%%%%%%%
+  %% Verzeichnisse %%
+  %%%%%%%%%%%%%%%%%%%
+  \pagenumbering{Roman}
+
+  % Inhaltsverzeichnis
+  \tableofcontents
+  \newpage
+
+  % Abkürzungsverzeichnis
+  \input{config/abkuerzungen}
+  \newpage
+
+  % Abbildungsverzeichnis
+  \listoffigures
+  \newpage
+
+  % Tabellenverzeichnis
+  \listoftables
+  \newpage
+
+  % Listingverzeichnis
+  \lstlistoflistings\newpage
+  \newpage
+
+  %%%%%%%%%%%%
+  %% Inhalt %%
+  %%%%%%%%%%%%
+  \pagenumbering{arabic}
+
+  % insert chapter files here like this:
+  %   \input{chapter/myfile}
+  %   \newpage
+
+  %%%%%%%%%%%%%
+  %% Schluss %%
+  %%%%%%%%%%%%%
+  % Quellenverzeichnis
+  \input{config/quellenverzeichnis}
+  \newpage
+
+  % Ehrenwörtliche Erklärung
+  \input{config/ehrenwoertliche_erklaerung}
+
+\end{document}
