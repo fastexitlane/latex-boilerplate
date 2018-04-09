@@ -1,7 +1,8 @@
 stages:
+  - test
   - build
 
-pdf:
+latexmk:
   stage: build
   tags:
     - latex
@@ -11,3 +12,13 @@ pdf:
     expire_in: 2d
   script:
     - latexmk -pdf
+
+hunspell:
+  stage: test
+  tags:
+    - hunspell
+  script:
+    - export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+    - echo $HUNSPELL_FINDINGS
+    - test "$HUNSPELL_FINDINGS" == ""
+  allow_failure: true
