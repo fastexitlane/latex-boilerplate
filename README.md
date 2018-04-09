@@ -1,23 +1,23 @@
 # LaTex Boilerplate
 
 This is a simple preconfigured boilerplate for medium-sized LaTex projects including continuous integration for GitLab CI.
-It's based on the `scrartcl` document class and currently layed out for german scientiefic documents.
+It's based on the `scrbook` document class and currently layed out for german scientiefic documents.
 
 
 ## Basic Structure
 The main entry point for the document compilation is the file `main.tex` in the repo root.
 Besides setting some common parameters for the document (like author name, title, date etc.), the basic document structure is created here (mostly by including seperate files) in the following order:
 
-* configuration (`configuration/config.tex`)
-* title page (`config/title.tex`)
+* configuration (`config/config.tex`)
+* title page (`additionals/title.tex`)
 * table of contents
-* list of acronyms (`config/abkuerzungen.tex`)
+* list of acronyms (`additionals/acronyms.tex`)
 * list of figures
 * list of tables
 * list of code listings
 * chapter files (`chapter/*`, needs to be filled up manually)
-* bibliography (`config/quellenverzeichnis.tex`, using the entries defined in `library/library.bib`)
-* declaration of authorship (`config/ehrenwoertliche_erklaerung.tex`)
+* bibliography (`config/references.tex`, using the entries defined in `library/library.bib`)
+* declaration of authorship (`additionals/affirmation.tex`)
 
 If you don't need one of the predefined document parts or want to omit it, simply remove or comment out the corresponding statements in `main.tex`.
 
@@ -79,6 +79,17 @@ The predefined document layout is the following:
 Further configuration can be done in `config/config.tex`.
 
 
+## Document Outline
+The `scrbook` document class provides the following elements (in said order) to outlining a document:
+
+* `\part{}`: roman numbering, e.g. *I*
+* `\chapter{}`: arabic 1st level numbering, e.g. *1*
+* `\section{}`: arabic 2nd level numbering, e.g. *1.1*
+* `\subsection{}`: arabic 3rd level numbering, e.g. *1.1.1*
+* `\subsubsection{}`: arabic 3rd level numbering, e.g. *1.1.1.1*
+* `\paragraph{}`: no numbering and independent from preceding hierarchy elements
+
+
 ## Continuous Integration
 The `.gitlab-ci.yml` file comes preconfigured to spellcheck and compile the LaTex document.
 
@@ -93,8 +104,10 @@ This is a simple word list structured by one word per line.
 By default, the spellcheck job is allowed to fail.
 
 ### Building the PDF
-The CI pipeline will build `main.tex` (and everything included here) to PDF using `pdflatex`.
-Build output is the file `main.pdf`, which can be downloaded from GitLab coordinator for two days (each pipeline run).
+The CI pipeline will build `main.tex` (and everything included here) to PDF using `xelatex`.
+It provides better handling of unicode characters and typesets special characters (like german umlauts) more precise.
+
+The build output is generated to `main.pdf`, which can be downloaded from GitLab coordinator for two days (each pipeline run).
 
 **(!)** Please adapt the configuration to your own runner setup if neccessary.
 
@@ -144,11 +157,10 @@ Config for syntax highlighting is centrally provided in `config/config.tex` usin
 It may be done individually for each listing.
 Please see official docs for that.
 
-### Paragraph distances
-You may wrap the blocks (lists, images, tables, paragraphs etc.) with a
+### Paragraph Distances and Onehalf Spacing
+There are certain LaTex environments that cause huge paragraph distances in combination with the `onehalfspacing` option (1.5 line height).
+For that reason you may wrap such environments (e.g. lists, images, tables, paragraphs etc.) with a `vspace`:
 
 ```latex
 \vspace{-\topsep}
 ```
-
-if the paragraph distances above and/or below seem too large to you.
