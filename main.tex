@@ -1,5 +1,3 @@
-\input{config/config}
-
 % Makros
 \newcommand{\dokumententyp}{Dokumententyp}
 \newcommand{\abgabedatum}{\today} 
@@ -14,19 +12,14 @@
 \newcommand{\studiengruppe}{Studiengruppe}
 \newcommand{\institution}{Institution}
 
-% PDF-Setup
-\hypersetup{
-  colorlinks=false,
-  pdfborder={0 0 0},
-  pdftitle=\dokumententitel,
-  pdfauthor=\dokumentenautor
-}
+% Config
+\input{config/config.tex}
 
 \begin{document}
   %%%%%%%%%%%%%%%
   %% Deckblatt %%
   %%%%%%%%%%%%%%%
-  \input{config/title}
+  \input{additionals/title.tex}
 
   %%%%%%%%%%%%%%%%%%%
   %% Verzeichnisse %%
@@ -38,7 +31,7 @@
   \newpage
 
   % Abkürzungsverzeichnis
-  \input{config/abkuerzungen}
+  \input{additionals/acronyms.tex}
   \newpage
 
   % Abbildungsverzeichnis
@@ -50,7 +43,7 @@
   \newpage
 
   % Listingverzeichnis
-  \lstlistoflistings\newpage
+  \lstlistoflistings
   \newpage
 
   %%%%%%%%%%%%
@@ -66,10 +59,10 @@
   %% Schluss %%
   %%%%%%%%%%%%%
   % Quellenverzeichnis
-  \input{config/quellenverzeichnis}
+  \input{config/references.tex}
   \newpage
 
   % Ehrenwörtliche Erklärung
-  \input{config/ehrenwoertliche_erklaerung}
+  \input{additionals/affirmation.tex}
 
 \end{document}
