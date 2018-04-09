@@ -80,8 +80,21 @@ Further configuration can be done in `config/config.tex`.
 
 
 ## Continuous Integration
-The `.gitlab-ci.yml` file comes preconfigured to compile `main.tex` (and everything included here) to PDF using `pdflatex`.
-Build output is the file `main.pdf` that can be downloaded from GitLab coordinator for two days (each pipeline run).
+The `.gitlab-ci.yml` file comes preconfigured to spellcheck and compile the LaTex document.
+
+### Spellchecking
+Spellchecking is done using `hunspell`.
+As LaTex `\input` directives are not recognized, all TeX files containing content need to be spellchecked seperately.
+Therefore, only the `chapter` files are included in the spellcheck.
+
+If you need certain words to be ignored during spellcheck (e.g. if they're not in the standard dictionaries), please insert them into the file `.hunspellignore`.
+This is a simple word list structured by one word per line.
+
+By default, the spellcheck job is allowed to fail.
+
+### Building the PDF
+The CI pipeline will build `main.tex` (and everything included here) to PDF using `pdflatex`.
+Build output is the file `main.pdf`, which can be downloaded from GitLab coordinator for two days (each pipeline run).
 
 **(!)** Please adapt the configuration to your own runner setup if neccessary.
 
