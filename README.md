@@ -157,9 +157,8 @@ Though, handling of captions is a bit complicated, which is why it's wrapped int
 \end{code}
 ```
 
-Config for syntax highlighting is centrally provided in `config/config.tex` using the `\lstset` directive (defaulting to `C#` in this boilerplate).
-It may be done individually for each listing.
-Please see official docs for that.
+Config for syntax highlighting is centrally provided in `config/config.tex` using the `\setminted` directive.
+For changes, see the official docs.
 
 ### Paragraph Distances and Onehalf Spacing
 There are certain LaTex environments that cause huge paragraph distances in combination with the `onehalfspacing` option (1.5 line height).
