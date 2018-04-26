@@ -11,7 +11,7 @@ latexmk:
       - main.pdf
     expire_in: 2d
   script:
-    - latexmk -xelatex main.tex
+    - latexmk main.tex
 
 hunspell:
   stage: test

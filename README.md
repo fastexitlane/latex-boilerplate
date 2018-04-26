@@ -144,13 +144,17 @@ If you introduce acronyms, add them to `config/abkuerzungen.tex` in the followin
 **(i)** Please note: If you have acronyms that are longer than four characters, you may extend the parameter in brackets behind the `\begin{acronym}` statement.
 
 ### Code Listings
-Listings (code snippets) are done using the `\lstlisting` environment.
-It can have it's own caption, positioned with the parameter `captionpos` (see official docs):
+Listings (code snippets) are done using the `minted` environment.
+It provides syntax highlighting for several languages via an external Python library (*Pygments*) and has comprehensive layout capabilities.
+Though, handling of captions is a bit complicated, which is why it's wrapped into a custom `code` environment:
 
 ```latex
-\begin{lstlisting}[caption=caption goes here,captionpos=b]
-    // code goes here...
-\end{lstlisting}
+\begin{code}
+    \inputminted{bash}{resources/yoursource.sh}
+    \label{yourlabel}
+    \captionof{listing}{Some Caption goes here...}
+    \source{and you can tell people where you got the code from...}
+\end{code}
 ```
 
 Config for syntax highlighting is centrally provided in `config/config.tex` using the `\lstset` directive (defaulting to `C#` in this boilerplate).

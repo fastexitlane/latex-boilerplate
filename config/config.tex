@@ -135,62 +135,16 @@
 \usepackage{scrhack}
 
 % Sourcecode-Listings
-\usepackage{listings}
+\usepackage[chapter,newfloat]{minted}
 
-\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
-\definecolor{lightbluekeywords}{rgb}{0.13,0.7,1}
-\definecolor{greencomments}{rgb}{0,0.5,0}
-\definecolor{redstrings}{rgb}{0.9,0,0}
-
-\lstset{language=[Sharp]C,
-showspaces=false,
-showtabs=false,
-breaklines=true,
-showstringspaces=false, 
-escapeinside={(*@}{@*)},
-commentstyle=\color{greencomments},
-keywordstyle=[0]\color{bluekeywords}\bfseries,
-keywordstyle=[1]\color{lightbluekeywords}\bfseries,
-stringstyle=\color{redstrings},
-basicstyle=\small\ttfamily,
-fontadjust, 
-xrightmargin=1mm, 
-keywords=[0]{string, int, public, var, static, using, object, void},
-keywords=[1]{File,UPFConfig,JsonConvert},
-tabsize=2,
-lineskip=-0.1em,
-frame=tb,
-numbers=left,
-numberstyle=\tiny,
-stepnumber=1,
-numbersep=5pt,
-escapeinside=||
+\setminted{
+  linenos=true,
+  frame=lines,
+  baselinestretch=1,
+  breaklines=true,
+  breakautoindent=true,
+  fontsize=\small
 }
 
-%% http://tex.stackexchange.com/questions/126839/how-to-add-a-colon-after-listing-label
-\makeatletter
-\begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
-  \globaldefs\@ne \let\c@loldepth\@ne
-  \newlistof{listings}{lol}{\lstlistlistingname}
-\endgroup
-\let\l@lstlisting\l@listings
-\makeatother
-
-\renewcommand*\cftfigpresnum{Abbildung~}
-\renewcommand*\cfttabpresnum{Tabelle~}
-\renewcommand*\cftlistingspresnum{Listing~}
-\renewcommand{\cftfigaftersnum}{:}
-\renewcommand{\cfttabaftersnum}{:}
-\renewcommand{\cftlistingsaftersnum}{:}
-\settowidth{\cftfignumwidth}{\cftfigpresnum 99~\cftfigaftersnum}
-\settowidth{\cfttabnumwidth}{\cfttabpresnum 99~\cftfigaftersnum}
-\settowidth{\cftlistingsnumwidth}{\cftlistingspresnum 99~\cftfigaftersnum}
-\setlength{\cfttabindent}{1.5em}
-\setlength{\cftfigindent}{1.5em}
-\setlength{\cftlistingsindent}{1.5em}
-
-\renewcommand\lstlistlistingname{Listingverzeichnis}
-
-\makeatletter
-\def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1.5em}{\lstlistingname\space{#1}}{#2}}
-\makeatother
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Listing,listname=Listingverzeichnis}
