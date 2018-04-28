@@ -10,6 +10,7 @@ Besides setting some common parameters for the document (like author name, title
 
 * configuration (`config/config.tex`)
 * title page (`additionals/title.tex`)
+* disclosure notice (`additionals/disclosure.tex`, decomment in `main.tex` if neccessary)
 * table of contents
 * list of acronyms (`additionals/acronyms.tex`)
 * list of figures
