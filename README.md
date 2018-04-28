@@ -107,12 +107,12 @@ Here's an overview of the supported document types and their keywords:
 | monographs            | `@Book`                | `mono`  |
 | essays                | `@Article`             | `mag`   |
 | articles              | `@Article`             | `art`   |
-| web pages             | `@Misc`                | `web`   |
+| web pages             | `@Online`              | `web`   |
 | legislative documents |                        | `leg`   |
 | company internal docs | `@Misc`                | `comp`  |
 
 
-References within the document are usually done using the `\autocite` statement.
+References within the document are usually done using the `\autocite[prefix][postfix]{bibkey}` statement.
 The default citation format is footnote.
 When referencing within a footnote, please create a manual reference using `\cite`.
 
@@ -154,6 +154,8 @@ If you want to use the preconfigured CI scripts, you need to register a shell ru
 The provided configuration `gitlab-ci.yml` assumes that you have rununers with the tags `hunspell` and `latex` assigned.
 It's recommended to register at least two runners (they may reside on the same box) in order to parallelize pipelines and speed up builds.
 
+**(!)** Please adapt the configuration to your own runner setup if neccessary.
+
 ### Spellchecking
 Spellchecking is done using `hunspell`.
 As LaTex `\input` directives are not recognized, all TeX files containing content need to be spellchecked seperately.
@@ -170,12 +172,11 @@ It provides better handling of unicode characters and typesets special character
 
 The build output is generated to `main.pdf`, which can be downloaded from GitLab coordinator for two days (each pipeline run).
 
-**(!)** Please adapt the configuration to your own runner setup if neccessary.
-
 
 ## Some special effects...
 ### Lists
 Please use `\compactitem` environment for unordered lists and `\compactenum` environment for ordered lists.
+Unlike the usual itemization environments they do not break lines with the usual paragraph spacing (which would be way too much due to the `\onehalfspacing`).
 
 ### Images
 Resource files for images may be stored in `resources/`.
@@ -196,7 +197,7 @@ The `\label` is used to cross-reference the image using `\ref`.
 The `\caption` may contain a usual `\cite` directive (see below).
 
 ### Acronyms
-If you introduce acronyms, add them to `config/abkuerzungen.tex` in the following way:
+If you introduce acronyms, add them to `additionals/acronyms.tex` in the following way:
 
 ```latex
 \acro{VMCS}{Virtual Machine Control Structure}
@@ -218,7 +219,22 @@ Though, handling of captions is a bit complicated, which is why it's wrapped int
 \end{code}
 ```
 
-Config for syntax highlighting is centrally provided in `config/config.tex` using the `\setminted` directive.
+If you want to provide your source code directly in the LaTex document, replace the `\inputminted` directive by a whole `minted environment`:
+
+```latex
+\begin{code}
+    \begin{minted}{bash}
+        # your code goes here...
+    \end{minted}
+    \label{yourlabel}
+    \captionof{listing}{Some Caption goes here...}
+    \source{and you can tell people where you got the code from...}
+\end{code}
+```
+
+Inline code is done using `\mintinline{bash}{# your inline snippet}`.
+
+The config for syntax highlighting etc. is centrally provided in `config/config.tex` using the `\setminted` directive.
 For changes, see the official docs.
 
 ### Paragraph Distances and Onehalf Spacing
