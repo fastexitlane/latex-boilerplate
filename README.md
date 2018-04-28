@@ -3,6 +3,55 @@
 This is a simple preconfigured boilerplate for medium-sized LaTex projects including continuous integration for GitLab CI.
 It's based on the `scrbook` document class and currently layed out for german scientiefic documents.
 
+<!-- TOC -->
+
+- [Getting Started](#getting-started)
+- [Basic Structure](#basic-structure)
+- [Inserting basic content](#inserting-basic-content)
+- [Bibliography](#bibliography)
+- [Layout and further configuration](#layout-and-further-configuration)
+- [Document Outline](#document-outline)
+- [Continuous Integration using GitLab CI](#continuous-integration-using-gitlab-ci)
+    - [Basic Requirements](#basic-requirements)
+    - [Spellchecking](#spellchecking)
+    - [Building the PDF](#building-the-pdf)
+- [Some special effects...](#some-special-effects)
+    - [Lists](#lists)
+    - [Images](#images)
+    - [Acronyms](#acronyms)
+    - [Code Listings](#code-listings)
+    - [Paragraph Distances and Onehalf Spacing](#paragraph-distances-and-onehalf-spacing)
+
+<!-- /TOC -->
+
+***
+
+## Getting Started
+To use this template in a new project, either download the [ZIP](https://github.com/fastexitlane/latex-boilerplate/archive/master.zip) directly from GitHub or clone it using Git:
+
+```bash
+git clone git@github.com:fastexitlane/latex-boilerplate.git
+# now set up your own Git workspace:
+git remote remove origin
+git remote add origin git@your-own-gitlab.host:path/to/repo.git
+git push origin master
+```
+
+If you already have set up an empty Git workspace for your project, add it as additional remote and then fetch and pull:
+
+```bash
+git remote add boilerplate git@github.com:fastexitlane/latex-boilerplate.git
+git fetch boilerplate
+git pull boilerplate master
+# if you don't want to keep the remote, remove it:
+git remote remove boilerplate
+```
+
+In order to use the preconfigured continuous integration, make sure your GitLab CI meets the [Basic Requirements](#basic-requirements).
+
+If you know what you're doing, simply start adding your content files in `chapter/` and `\input` them in `main.tex`.
+If you do not know what you're doing or get into trouble, you may want to read on. ;-)
+
 
 ## Basic Structure
 The main entry point for the document compilation is the file `main.tex` in the repo root.
@@ -91,8 +140,19 @@ The `scrbook` document class provides the following elements (in said order) to 
 * `\paragraph{}`: no numbering and independent from preceding hierarchy elements
 
 
-## Continuous Integration
+## Continuous Integration using GitLab CI
 The `.gitlab-ci.yml` file comes preconfigured to spellcheck and compile the LaTex document.
+
+### Basic Requirements
+If you want to use the preconfigured CI scripts, you need to register a shell runner which basically has the following tools installed:
+
+* `latexmk` as LaTex build system
+* `xelatex` as LaTex PDF environment
+* Python and the Pygments library (for source code listings using the `minted` environment)
+* `hunspell` for spellchecks
+
+The provided configuration `gitlab-ci.yml` assumes that you have rununers with the tags `hunspell` and `latex` assigned.
+It's recommended to register at least two runners (they may reside on the same box) in order to parallelize pipelines and speed up builds.
 
 ### Spellchecking
 Spellchecking is done using `hunspell`.
