@@ -21,6 +21,7 @@ It's based on the `scrbook` document class and currently layed out for german sc
     - [Acronyms](#acronyms)
     - [Code Listings](#code-listings)
     - [Paragraph Distances and Onehalf Spacing](#paragraph-distances-and-onehalf-spacing)
+- [Snippets for working in VS Code](#snippets-for-working-in-vs-code)
 
 <!-- /TOC -->
 
@@ -57,7 +58,7 @@ If you do not know what you're doing or get into trouble, you may want to read o
 The main entry point for the document compilation is the file `main.tex` in the repo root.
 Besides setting some common parameters for the document (like author name, title, date etc.), the basic document structure is created here (mostly by including seperate files) in the following order:
 
-* configuration (`config/config.tex`)
+* configuration (`config.tex`)
 * title page (`additionals/title.tex`)
 * disclosure notice (`additionals/disclosure.tex`, decomment in `main.tex` if neccessary)
 * table of contents
@@ -66,7 +67,7 @@ Besides setting some common parameters for the document (like author name, title
 * list of tables
 * list of code listings
 * chapter files (`chapter/*`, needs to be filled up manually)
-* bibliography (`config/references.tex`, using the entries defined in `library/library.bib`)
+* bibliography (`additionals/references.tex`, using the entries defined in `library/library.bib`)
 * declaration of authorship (`additionals/affirmation.tex`)
 
 If you don't need one of the predefined document parts or want to omit it, simply remove or comment out the corresponding statements in `main.tex`.
@@ -102,14 +103,15 @@ If there's no bibliography entry for a keyword, the bibliography type will be om
 
 Here's an overview of the supported document types and their keywords:
 
-| type                  | biblatex document type | keyword |
-|-----------------------|------------------------|---------|
-| monographs            | `@Book`                | `mono`  |
-| essays                | `@Article`             | `mag`   |
-| articles              | `@Article`             | `art`   |
-| web pages             | `@Online`              | `web`   |
-| legislative documents |                        | `leg`   |
-| company internal docs | `@Misc`                | `comp`  |
+| type                             | biblatex document type        | keyword        |
+|----------------------------------|-------------------------------|----------------|
+| monographs                       | `@Book`                       | -              |
+| essays and articles in magazines | `@Article`                    | -              |
+| articles in collections          | `@InCollection`               | -              |
+| other papers                     | `@InProceedings` or `@Thesis` | -              |
+| web pages                        | `@Online`                     | -              |
+| legislative documents            | `@Misc`                       | `jurisdiction` |
+| company internal docs            | `@Misc`                       | `company`      |
 
 
 References within the document are usually done using the `\autocite[prefix][postfix]{bibkey}` statement.
@@ -244,3 +246,8 @@ For that reason you may wrap such environments (e.g. lists, images, tables, para
 ```latex
 \vspace{-\topsep}
 ```
+
+## Snippets for working in VS Code
+I compiled a few useful editor snippets to work with this boilerplate in VS Code.
+
+See [VS Code: LaTex-Snippets](https://gitlab.com/snippets/1729310) for more.
