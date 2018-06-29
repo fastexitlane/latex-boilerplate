@@ -12,47 +12,51 @@
 \newcommand{\studiengruppe}{Studiengruppe}
 \newcommand{\institution}{Institution}
 
-% Config
-\input{config/config.tex}
+% config
+\input{config.tex}
 
 \begin{document}
-  %%%%%%%%%%%%%%%
-  %% Deckblatt %%
-  %%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%
+  %% document title page %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%
   \input{additionals/title.tex}
 
-  %%%%%%%%%%%%%%%%%%%
-  %% Verzeichnisse %%
-  %%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%
+  %% indexes %%
+  %%%%%%%%%%%%%
   \pagenumbering{Roman}
 
-  % Sperrvermerk - einkommentieren falls erforderlich
+  % disclosure statement - uncomment if needed
   % \input{additionals/disclosure.tex}
   % \newpage
 
-  % Inhaltsverzeichnis
+  % executive summary - uncomment if needed
+  % \input{additionals/executive_summary.tex}
+  % \newpage
+
+  % table of contents
   \tableofcontents
   \newpage
 
-  % Abkürzungsverzeichnis
+  % acronyms
   \input{additionals/acronyms.tex}
   \newpage
 
-  % Abbildungsverzeichnis
+  % list of figures
   \listoffigures
   \newpage
 
-  % Tabellenverzeichnis
+  % list of tables
   \listoftables
   \newpage
 
-  % Listingverzeichnis
+  % list of listings
   \listoflistings
   \newpage
 
-  %%%%%%%%%%%%
-  %% Inhalt %%
-  %%%%%%%%%%%%
+  %%%%%%%%%%%%%
+  %% content %%
+  %%%%%%%%%%%%%
   \pagenumbering{arabic}
 
   % insert chapter files here like this:
@@ -60,13 +64,17 @@
   %   \newpage
 
   %%%%%%%%%%%%%
-  %% Schluss %%
+  %% closing %%
   %%%%%%%%%%%%%
-  % Quellenverzeichnis
-  \input{config/references.tex}
+  % list of references
+  \input{additionals/references.tex}
   \newpage
 
-  % Ehrenwörtliche Erklärung
+  % appendix - uncomment if needed
+  % \input{additionals/appendix.tex}
+  % \newpage
+
+  % affirmation
   \input{additionals/affirmation.tex}
 
 \end{document}

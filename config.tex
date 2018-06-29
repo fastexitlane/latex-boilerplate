@@ -1,4 +1,4 @@
-%!TEX root = ../main.tex
+%!TEX root = ./main.tex
 
 \documentclass[
   paper=A4,
@@ -9,7 +9,8 @@
   draft=false,
   headings=small,
   oneside,
-  final
+  final,
+  numbers=noenddot
 ]{scrbook}
 
 % Seitenränder
@@ -94,7 +95,7 @@
 
 % Zitate und Quellenverzeichnis
 \usepackage[
-    style=authoryear,
+    style=authoryear-ibid,
     giveninits=false,
     natbib=true,
     urldate=long,
@@ -105,7 +106,9 @@
     maxbibnames=99,
     backend=biber,
     autocite=footnote,
-    uniquelist=false
+    uniquelist=false,
+    ibidpage=true,
+    citetracker=true
 ]{biblatex}
 \bibliography{library/library}
 \DeclareLabeldate{
@@ -152,3 +155,6 @@
 % Fußnoten durchnummerieren
 \usepackage{chngcntr}
 \counterwithout{footnote}{chapter}
+
+% UTF8-Zeichen für math-Umgebung
+\usepackage{amsmath}

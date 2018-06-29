@@ -1,0 +1,41 @@
+%!TEX root = ../main.tex
+
+\addchap{Quellenverzeichnis}
+
+\defbibheading{book}{\section*{Monographien}}
+\defbibheading{article}{\section*{Beiträge in Zeitungen und Zeitschriften}}
+\defbibheading{incollection}{\section*{Beiträge in Sammelbänden}}
+\defbibheading{paper}{\section*{Papers}}
+\defbibfilter{paper}{
+    type=inproceedings or
+    type=thesis
+}
+\defbibheading{online}{\section*{Internetquellen}}
+\defbibheading{jurisdiction}{\section*{Rechtsprechung}}
+\defbibheading{company}{\section*{Unternehmensunterlagen}}
+\defbibheading{uncited}{\section*{Unzitierte Quellen}}
+\defbibcheck{uncited}{
+  \ifciteseen
+    {\skipentry}
+    {}
+}
+
+\setlength\bibitemsep{1.5\itemsep}
+\setlength{\bibhang}{2em}
+
+\renewcommand{\baselinestretch}{1.50}\normalsize
+
+\begingroup
+\sloppy
+
+\printbibliography[heading=book,type=book]
+\printbibliography[heading=article,type=article]
+\printbibliography[heading=incollection,type=incollection]
+\printbibliography[heading=paper,filter=paper]
+\printbibliography[heading=online,type=online]
+\printbibliography[heading=jurisdiction,keyword=jurisdiction]
+\printbibliography[heading=company,keyword=company]
+%\printbibliography[heading=uncited,check=uncited]
+%\nocite{*}
+
+\endgroup
