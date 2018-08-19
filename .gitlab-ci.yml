@@ -3,7 +3,7 @@ stages:
   - build
 
 latexmk:
-  image: tianon/latex:latest
+  image: bnord01/docker-latex-pygments:latest
   stage: build
   artifacts:
     paths:
