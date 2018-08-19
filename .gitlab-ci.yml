@@ -3,6 +3,7 @@ stages:
   - build
 
 latexmk:
+  image: tianon/latex:latest
   stage: build
   tags:
     - latex
@@ -14,6 +15,7 @@ latexmk:
     - latexmk main.tex
 
 hunspell:
+  image: tmaier/hunspell:latest
   stage: test
   tags:
     - hunspell
