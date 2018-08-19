@@ -144,6 +144,9 @@ The `scrbook` document class provides the following elements (in said order) to 
 
 ## Continuous Integration using GitLab CI
 The `.gitlab-ci.yml` file comes preconfigured to spellcheck and compile the LaTex document.
+You can use it directly on gitlab.com without a private GitLab instance or runner, because the CI jobs rely on corresponding Docker images ([tmaier/hunspell](https://hub.docker.com/r/tmaier/hunspell/) for spellchecking and [bnord01/docker-latex-pygments](https://hub.docker.com/r/bnord01/docker-latex-pygments/) for the actual latex build).
+
+If you plan to use this boilerplate on your private GitLab instance or to customize it, please keep the following aspects in mind.
 
 ### Basic Requirements
 If you want to use the preconfigured CI scripts, you need to register a shell runner which basically has the following tools installed:
