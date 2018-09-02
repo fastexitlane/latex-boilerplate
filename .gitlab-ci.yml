@@ -7,7 +7,7 @@ latexmk:
   stage: build
   artifacts:
     paths:
-      - main.pdf
+      - main*.pdf
     expire_in: 2d
   script:
     - latexmk main.tex
