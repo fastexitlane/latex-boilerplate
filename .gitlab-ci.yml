@@ -19,7 +19,7 @@ hunspell:
   image: tmaier/hunspell:latest
   stage: test
   script:
-    - export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+    - export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_neu,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
     - echo $HUNSPELL_FINDINGS
     - test "$HUNSPELL_FINDINGS" == ""
   allow_failure: true
