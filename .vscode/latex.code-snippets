@@ -1,0 +1,94 @@
+{
+    "Figure": {
+        "scope": "latex",
+		"prefix": "fig",
+		"body": [
+			"\\begin{figure}[h]",
+			"    \\centering",
+			"    \\fbox{\\includegraphics[width=1\\textwidth]{resources/$1}}",
+			"    \\caption{$2}",
+			"    \\label{fig:$3}",
+			"    \\source{$4}",
+			"\\end{figure}"
+		]
+	},
+
+	"Code Listing": {
+        "scope": "latex",
+		"prefix": "lst",
+		"body": [
+			"\\begin{code}",
+			"    \\inputminted{${1:language}}{resources/${2:source file}}",
+			"    \\label{lst:$3}",
+			"    \\captionof{listing}{$4}",
+			"    \\source{$5}",
+			"\\end{code}"
+		]
+	},
+
+	"Table": {
+        "scope": "latex",
+		"prefix": "tab",
+		"body": [
+			"\\begin{table}[h]",
+			"    \\centering",
+			"    \\begin{tabularx}{\\textwidth}{$1}",
+			"        $5",
+			"    \\end{tabularx}",
+			"    \\caption{$2}",
+			"    \\label{tab:$3}",
+			"    \\source{$4}",
+			"\\end{table}"
+		]
+	},
+
+	"online im Internet": {
+        "scope": "latex",
+		"prefix": "oii",
+		"body": "online im Internet"
+	},
+
+	"bold": {
+        "scope": "latex",
+		"prefix": "bf",
+		"body": "\\textbf{$1}$0"
+	},
+
+	"italic": {
+        "scope": "latex",
+		"prefix": "it",
+		"body": "\\textit{$1}$0"
+	},
+
+	"enquote": {
+        "scope": "latex",
+		"prefix": "enq",
+		"body": "\\enquote{$1}$0"
+	},
+
+	"item": {
+        "scope": "latex",
+		"prefix": "item",
+		"body": [
+			"\\begin{compactitem}",
+			"    \\item $1",
+			"\\end{compactitem}"
+		]
+	},
+
+	"enum": {
+        "scope": "latex",
+		"prefix": "enum",
+		"body": [
+			"\\begin{compactenum}",
+			"    \\item $1",
+			"\\end{compactenum}"
+		]
+	},
+
+	"autocite": {
+        "scope": "latex",
+		"prefix": "ac",
+		"body": "\\autocite[vgl.][${2:page}]{${1:bibentry}}"
+	},
+}

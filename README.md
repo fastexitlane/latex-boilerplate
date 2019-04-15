@@ -5,23 +5,23 @@ It's based on the `scrbook` document class and currently layed out for german sc
 
 <!-- TOC -->
 
-- [Getting Started](#getting-started)
-- [Basic Structure](#basic-structure)
-- [Inserting basic content](#inserting-basic-content)
-- [Bibliography](#bibliography)
-- [Layout and further configuration](#layout-and-further-configuration)
-- [Document Outline](#document-outline)
-- [Continuous Integration using GitLab CI](#continuous-integration-using-gitlab-ci)
-    - [Basic Requirements](#basic-requirements)
-    - [Spellchecking](#spellchecking)
-    - [Building the PDF](#building-the-pdf)
-- [Some special effects...](#some-special-effects)
-    - [Lists](#lists)
-    - [Images](#images)
-    - [Acronyms](#acronyms)
-    - [Code Listings](#code-listings)
-    - [Paragraph Distances and Onehalf Spacing](#paragraph-distances-and-onehalf-spacing)
-- [Snippets for working in VS Code](#snippets-for-working-in-vs-code)
+* [Getting Started](#getting-started)
+* [Basic Structure](#basic-structure)
+* [Inserting basic content](#inserting-basic-content)
+* [Bibliography](#bibliography)
+* [Layout and further configuration](#layout-and-further-configuration)
+* [Document Outline](#document-outline)
+* [Continuous Integration using GitLab CI](#continuous-integration-using-gitlab-ci)
+  * [Basic Requirements](#basic-requirements)
+  * [Spellchecking](#spellchecking)
+  * [Building the PDF](#building-the-pdf)
+* [Some special effects...](#some-special-effects)
+  * [Lists](#lists)
+  * [Images](#images)
+  * [Acronyms](#acronyms)
+  * [Code Listings](#code-listings)
+  * [Paragraph Distances and Onehalf Spacing](#paragraph-distances-and-onehalf-spacing)
+* [Snippets for working in VS Code](#snippets-for-working-in-vs-code)
 
 <!-- /TOC -->
 
@@ -251,6 +251,10 @@ For that reason you may wrap such environments (e.g. lists, images, tables, para
 ```
 
 ## Snippets for working in VS Code
-I compiled a few useful editor snippets to work with this boilerplate in VS Code.
+I compiled the abovementioned "conventions" from this boilerplate to a set of snippets for Visual Studio Code to faciliate the use of this boilerplate within that editor.
+There are snippets available for both LaTex documents and BibTex library files.
+As they're bundled in this repo (`.vscode/*.code-snippets`), you should be able to use them right away.
 
-See [VS Code: LaTex-Snippets](https://gitlab.com/snippets/1729310) for more.
+**(!)** Please note:
+* Repo-level snippets are [only supported starting with VS Code 1.28 (September 2018)](https://code.visualstudio.com/updates/v1_28#_project-level-snippets).
+* Editing LaTex projects in VS Code requires the [LaTex Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).

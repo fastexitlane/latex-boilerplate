@@ -1,0 +1,87 @@
+{
+	"book": {
+        "scope": "bibtex",
+		"prefix": "@Book",
+		"body": [
+			"@Book{${1:citekey},",
+			"    title      = {$2},",
+			"    subtitle   = {$3},",
+			"    year       = {$4},",
+			"    author     = {$5},",
+			"    publisher  = {$6},",
+			"    location   = {$7},",
+			"    file       = {:${8:filename}:${9:mimetype}},",
+			"}$0"
+		]
+	},
+
+	"article": {
+        "scope": "bibtex",
+		"prefix": "@Article",
+		"body": [
+			"@Article{${1:citekey},",
+			"    title      = {$2},",
+			"    subtitle   = {$3},",
+			"    year       = {$4},",
+			"    author     = {$5},",
+			"    journal    = {$6},",
+			"    volume     = {$7},",
+			"    number     = {$8},",
+			"    pages      = {$9},",
+			"    file       = {:${10:filename}:${11:mimetype}},",
+			"}$0"
+		]
+	},
+
+	"online": {
+        "scope": "bibtex",
+		"prefix": "@Online",
+		"body": [
+			"@Online{${1:citekey},",
+			"    title      = {$2},",
+			"    subtitle   = {$3},",
+			"    year       = {$4},",
+			"    author     = {$5},",
+			"    url        = {$6},",
+			"    urldate    = {$7},",
+			"    file       = {:${8:filename}:${9:mimetype}},",
+			"}$0"
+		]
+	},
+
+	"collection": {
+        "scope": "bibtex",
+		"prefix": "@Collection",
+		"body": [
+			"@Collection{${1:citekey},",
+			"    title      = {$2},",
+			"    subtitle   = {$3},",
+			"    year       = {$4},",
+			"    editor     = {$5},",
+			"    location   = {$6},",
+			"    file       = {:${7:filename}:${8:mimetype}},",
+			"}$0"			   
+		]
+	},
+
+	"in collection": {
+        "scope": "bibtex",
+		"prefix": "@InCollection",
+		"body": [
+			"@InCollection{${1:citekey},",
+			"    title        = {$2},",
+			"    year         = {$3},",
+			"    author       = {$4},",
+			"    chapter      = {$5},",
+			"    pages        = {$6},",
+			"    booktitle    = {$7},",
+			"    booksubtitle = {$8},",
+			"    editor       = {$9},",
+			"    publisher    = {$10},",
+			"    editor       = {$11}",
+			"    location     = {$12},",
+			"    file         = {:${13:filename}:${14:mimetype}},",
+			"}$0"
+		]
+	}
+}
