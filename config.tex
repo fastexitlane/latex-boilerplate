@@ -115,6 +115,36 @@
   \field{origdate}
   \literal{nodate}
 }
+\AtEveryBibitem{
+  \ifentrytype{book}{
+    \clearfield{url}
+    \clearfield{urldate}
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+    \clearfield{urlday}
+  }{}
+  \ifentrytype{article}{
+    \clearfield{url}
+    \clearfield{urldate}
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+    \clearfield{urlday}
+  }{}
+  \ifentrytype{inproceedings}{
+    \clearfield{url}
+    \clearfield{urldate}
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+    \clearfield{urlday}
+  }{}
+  \ifentrytype{incollection}{
+    \clearfield{url}
+    \clearfield{urldate}
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+    \clearfield{urlday}
+  }{
+}
 
 % Ebenentiefe der Nummerierung
 \setcounter{secnumdepth}{3}
