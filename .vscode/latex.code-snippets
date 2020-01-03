@@ -1,5 +1,5 @@
 {
-    "Figure": {
+    "figure": {
         "scope": "latex",
 		"prefix": "fig",
 		"body": [
@@ -13,7 +13,7 @@
 		]
 	},
 
-	"Code Listing": {
+	"code listing": {
         "scope": "latex",
 		"prefix": "lst",
 		"body": [
@@ -26,7 +26,7 @@
 		]
 	},
 
-	"Table": {
+	"table": {
         "scope": "latex",
 		"prefix": "tab",
 		"body": [
@@ -90,5 +90,32 @@
         "scope": "latex",
 		"prefix": "ac",
 		"body": "\\autocite[vgl.][${2:page}]{${1:bibentry}}"
+	},
+
+		"chapter": {
+		"scope": "latex",
+		"prefix": "chap",
+		"body": [
+			"\\chapter{$1}",
+			"\\label{chap:$2}"
+		]
+	},
+
+	"section": {
+		"scope": "latex",
+		"prefix": "sec",
+		"body": [
+			"\\section{$1}",
+			"\\label{sec:$2}",
+		],
+	},
+
+	"subsection": {
+		"scope": "latex",
+		"prefix": "subsec",
+		"body": [
+			"\\subsection{$1}",
+			"\\label{sec:$2}",
+		],
 	},
 }
