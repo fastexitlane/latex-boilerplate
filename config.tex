@@ -48,11 +48,14 @@
 % Tabellenzellen über mehrere Reihen oder Spalten
 \usepackage{multirow}
 
-% Möglichkeit für zeilenumbrüche in Tabellen
+% Möglichkeit für Zeilenumbrüche in Tabellen
 \usepackage{makecell}
 
+% Tabellen im Querformat
+\usepackage{rotating}
+
 % mehr Zeilenabstand in Tabellen
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.15}
 
 % Für die Befehle \toprule, \midrule und \bottomrule, z.B. in Tabellen 
 \usepackage{booktabs}
@@ -192,9 +195,6 @@
 % Fußnoten durchnummerieren
 \usepackage{chngcntr}
 \counterwithout{footnote}{chapter}
-
-% mehrzeilige Tabellenzellen
-\usepackage{multirow}
 
 % UTF8-Zeichen für math-Umgebung
 \usepackage{amsmath}
