@@ -15,11 +15,21 @@ latexmk:
     - mv main.pdf main@$ci_commit_sha_short.pdf
 
 
-hunspell:
+hunspell_chapters:
   image: tmaier/hunspell:latest
   stage: test
   script:
     - export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_neu,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+    - echo $HUNSPELL_FINDINGS
+    - test "$HUNSPELL_FINDINGS" == ""
+  allow_failure: true
+
+
+hunspell_appendix:
+  image: tmaier/hunspell:latest
+  stage: test
+  script:
+    - export HUNSPELL_FINDINGS=`for filename in appendix/*.tex; do hunspell -l -d de_DE_neu,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
     - echo $HUNSPELL_FINDINGS
     - test "$HUNSPELL_FINDINGS" == ""
   allow_failure: true
