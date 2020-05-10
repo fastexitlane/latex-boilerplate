@@ -92,13 +92,19 @@
 		"body": "\\autocite[vgl.][${2:page}]{${1:bibentry}}"
 	},
 
-		"chapter": {
+	"chapter": {
 		"scope": "latex",
 		"prefix": "chap",
 		"body": [
 			"\\chapter{$1}",
 			"\\label{chap:$2}"
 		]
+	},
+
+	"citeauthor": {
+		"scope": "latex",
+		"prefix": "ca",
+		"body": "\\textit{\\citeauthor{$1}}"
 	},
 
 	"section": {
