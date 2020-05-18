@@ -2,30 +2,30 @@ stages:
   - test
   - build
 
-latexmk:
-  image: bnord01/docker-latex-pygments:latest
-  stage: build
-  artifacts:
-    paths:
-      - main*.pdf
-    expire_in: 2d
-  script:
-    - latexmk main.tex
-    - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
-    - mv main.pdf main@$ci_commit_sha_short.pdf
-
-#pandoc_latexmk:
-#  image: pandoc/latex
+#latexmk:
+#  image: bnord01/docker-latex-pygments:latest
 #  stage: build
 #  artifacts:
 #    paths:
 #      - main*.pdf
 #    expire_in: 2d
 #  script:
-#    - pandoc --filter pandoc-crossref --filter pandoc-citeproc -M cref=true --top-level-division=chapter --bibliography library/library.bib --biblatex -o chapter/out.tex chapter/*.md
 #    - latexmk main.tex
 #    - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
 #    - mv main.pdf main@$ci_commit_sha_short.pdf
+
+pandoc_latexmk:
+  image: pandoc/latex
+  stage: build
+  artifacts:
+    paths:
+      - main*.pdf
+    expire_in: 2d
+  script:
+    - pandoc --filter pandoc-crossref --filter pandoc-citeproc -M cref=true --top-level-division=chapter --bibliography library/library.bib --biblatex -o chapter/out.tex chapter/*.md
+    - latexmk main.tex
+    - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
+    - mv main.pdf main@$ci_commit_sha_short.pdf
 
 hunspell_chapters:
   image: tmaier/hunspell:latest
