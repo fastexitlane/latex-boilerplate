@@ -5,6 +5,7 @@ temp/
 
 ## main build output
 main.pdf
+chapter/out.tex
 
 ## IDE and Editor files
 .idea/**
