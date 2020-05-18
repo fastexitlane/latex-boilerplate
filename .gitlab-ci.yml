@@ -15,7 +15,7 @@ stages:
 #    - mv main.pdf main@$ci_commit_sha_short.pdf
 
 pandoc_latexmk:
-  image: leolabs/pandoc-latex
+  image: thomasweise/docker-pandoc
   stage: build
   artifacts:
     paths:
