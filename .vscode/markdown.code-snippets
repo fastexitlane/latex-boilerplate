@@ -1,0 +1,25 @@
+{
+    "online im Internet": {
+        "scope": "markdown",
+        "prefix": "oii",
+        "body": "online im Internet"
+    },
+
+    "autocite": {
+        "scope": "markdown",
+		"prefix": "ac",
+		"body": "[vgl. @${1:bibentry}, ${2:page}]"
+    },
+    
+    "label": {
+        "scope": "markdown",
+        "prefix": "lbl",
+        "body": "{#${1:type}:${2:id}}"
+    },
+
+    "reference": {
+        "scope": "markdown",
+        "prefix": "ref",
+        "body": "[@$1]"
+    }
+}

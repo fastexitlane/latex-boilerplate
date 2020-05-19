@@ -11,12 +11,23 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn": "clean"
+            "dependsOrder": "sequence",
+            "dependsOn": ["clean"]
         },
         {
             "label": "clean",
             "type": "shell",
-            "command": "latexmk -C"
+            "command": "latexmk -C; if [ -f chapter/out.tex ]; then rm chapter/out.tex; fi"
+        },
+        {
+            "label": "pandoc",
+            "type": "shell",
+            "command": [
+                "pandoc --filter pandoc-crossref --filter pandoc-citeproc ",
+                "-M cref=true --top-level-division=chapter ",
+                "--bibliography library/library.bib --biblatex ",
+                "-o chapter/out.tex chapter/*.md"
+            ]
         }
     ]
 }
