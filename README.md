@@ -32,4 +32,4 @@ If you do not know what you're doing or get into trouble - or want to use the **
 
 
 ## Docker Image
-If you need a docker image to build your documents, head over to [pandoc-latex](https://github.com/fastexitlane/pandoc-latex) ([DockerHub](https://hub.docker.com/r/fastexitlane/pandoc-latex)
+If you need a docker image to build your documents, head over to [pandoc-latex](https://github.com/fastexitlane/pandoc-latex) ([DockerHub](https://hub.docker.com/r/fastexitlane/pandoc-latex)).
