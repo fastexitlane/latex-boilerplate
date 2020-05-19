@@ -3,7 +3,7 @@ stages:
   - build
 
 #latexmk:
-#  image: bnord01/docker-latex-pygments:latest
+#  image: fastexitlane/pandoc-latex:latest
 #  stage: build
 #  artifacts:
 #    paths:
@@ -15,7 +15,7 @@ stages:
 #    - mv main.pdf main@$ci_commit_sha_short.pdf
 
 pandoc_latexmk:
-  image: fastexitlane/pandoc-latex
+  image: fastexitlane/pandoc-latex:latest
   stage: build
   artifacts:
     paths:

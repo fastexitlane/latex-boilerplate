@@ -12,7 +12,7 @@
                 "isDefault": true
             },
             "dependsOrder": "sequence",
-            "dependsOn": ["clean"]
+            "dependsOn": ["clean", "pandoc"]
         },
         {
             "label": "clean",
