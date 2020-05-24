@@ -31,5 +31,6 @@ If you know what you're doing, simply start adding your content files in `chapte
 If you do not know what you're doing or get into trouble - or want to use the **Markdown Workflow**, you may want to consider the [wiki](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/home) ;-)
 
 
-## Docker Image
+## Docker Images
 If you need a docker image to build your documents, head over to [pandoc-latex](https://github.com/fastexitlane/pandoc-latex) ([DockerHub](https://hub.docker.com/r/fastexitlane/pandoc-latex)).
+Also, there's a prebuilt Docker image for spellchecking using Hunspell - head over to [docker-hunspell](https://github.com/fastexitlane/docker-hunspell).
