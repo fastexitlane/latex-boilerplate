@@ -25,8 +25,9 @@ git pull boilerplate master
 git remote remove boilerplate
 ```
 
-In order to use the preconfigured continuous integration, make sure your GitLab CI meets the [Basic Requirements](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/GitLab-CI#basic-requirements).
-Then rename either `latex.gitlab-ci.yml` or `markdown.gitlab-ci.yml` to `.gitlab-ci`, depending on which workflow you want to use.
+In order to use the preconfigured CI / CD pipeline for building PDFs, copy either `latex.gitlab-ci.yml` or `markdown.gitlab-ci.yml` to `.gitlab-ci`, depending on which workflow you want to use.
+On GitLab.com, this will use Dockerized builds by default.
+If you want to use the workflow on own hardware, make sure your GitLab CI meets the [Basic Requirements](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/GitLab-CI#basic-requirements).
 
 If you know what you're doing, simply start adding your content files in `chapter/` as LaTex `\chapter`s and `\input` them into `main.tex`.
 If you do not know what you're doing or get into trouble - or want to use the **Markdown Workflow**, you may want to consider the [wiki](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/home) ;-)
