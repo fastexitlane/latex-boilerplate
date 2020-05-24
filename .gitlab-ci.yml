@@ -1,9 +1,8 @@
 stages:
-    - test
-    - build
+  - test
+  - build
 
-
-pandoc_latexmk:
+latexmk:
   image: fastexitlane/pandoc-latex:latest
   stage: build
   artifacts:
@@ -11,7 +10,6 @@ pandoc_latexmk:
       - main*.pdf
     expire_in: 2d
   script:
-    - pandoc --filter pandoc-crossref --filter pandoc-citeproc -M cref=true --top-level-division=chapter --bibliography library/library.bib --biblatex -o chapter/out.tex chapter/*.md
     - latexmk main.tex
     - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
     - mv main.pdf main@$ci_commit_sha_short.pdf
@@ -21,7 +19,7 @@ hunspell_chapters:
   image: fastexitlane/hunspell:latest
   stage: test
   script:
-    - export HUNSPELL_FINDINGS=`for filename in chapter/*.md; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore $filename; done | sort | uniq`
+    - export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
     - echo $HUNSPELL_FINDINGS
     - test "$HUNSPELL_FINDINGS" == ""
   allow_failure: true
@@ -35,4 +33,3 @@ hunspell_appendix:
     - echo $HUNSPELL_FINDINGS
     - test "$HUNSPELL_FINDINGS" == ""
   allow_failure: true
-  
