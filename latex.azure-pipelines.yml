@@ -1,0 +1,32 @@
+pool:
+    vmImage: 'ubuntu-latest'
+  
+stages:
+  - stage: spellcheck
+    jobs:
+    - job: spellcheck_chapters
+      container: fastexitlane/hunspell:latest
+      continueOnError: true
+      steps:
+        - script: export HUNSPELL_FINDINGS=`for filename in chapter/*.tex; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+        - script: echo $HUNSPELL_FINDINGS
+        - script: test "$HUNSPELL_FINDINGS" == ""
+    - job: spellcheck_appendix
+      container: fastexitlane/hunspell:latest
+      continueOnError: true
+      steps:
+        - script: export HUNSPELL_FINDINGS=`for filename in appendix/*.tex; do hunspell -l -d de_DE_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+        - script: echo $HUNSPELL_FINDINGS
+        - script: test "$HUNSPELL_FINDINGS" == ""
+  - stage: build
+    jobs:
+    - job: latexmk
+      container: fastexitlane/pandoc-latex:latest
+      steps:
+      - script: latexmk main.tex
+        displayName: Execute LaTex Build
+      - task: PublishBuildArtifacts@1
+        inputs:
+          ArtifactName: main.pdf
+          PathtoPublish: ./main.pdf
+  
