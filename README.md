@@ -25,12 +25,14 @@ git pull boilerplate master
 git remote remove boilerplate
 ```
 
-In order to use the preconfigured continuous integration, make sure your GitLab CI meets the [Basic Requirements](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/GitLab-CI#basic-requirements).
+In order to use the preconfigured CI / CD pipeline for building PDFs, copy either `latex.gitlab-ci.yml` or `markdown.gitlab-ci.yml` to `.gitlab-ci`, depending on which workflow you want to use.
+On GitLab.com, this will use Dockerized builds by default.
+If you want to use the workflow on own hardware, make sure your GitLab CI meets the [Basic Requirements](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/GitLab-CI#basic-requirements).
 
 If you know what you're doing, simply start adding your content files in `chapter/` as LaTex `\chapter`s and `\input` them into `main.tex`.
 If you do not know what you're doing or get into trouble - or want to use the **Markdown Workflow**, you may want to consider the [wiki](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/home) ;-)
 
 
 ## Docker Images
-If you need a docker image to build your documents, head over to [pandoc-latex](https://github.com/fastexitlane/pandoc-latex) ([DockerHub](https://hub.docker.com/r/fastexitlane/pandoc-latex)).
+If you need a Docker image to build your documents, head over to [pandoc-latex](https://github.com/fastexitlane/pandoc-latex) ([DockerHub](https://hub.docker.com/r/fastexitlane/pandoc-latex)).
 Also, there's a prebuilt Docker image for spellchecking using Hunspell - head over to [docker-hunspell](https://github.com/fastexitlane/docker-hunspell).
