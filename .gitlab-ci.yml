@@ -19,7 +19,7 @@ pandoc_latexmk:
     image: fastexitlane/hunspell:latest
     stage: test
     script:
-      - export HUNSPELL_FINDINGS=`for filename in chapter/*.md; do hunspell -l -d de_DE_neu,en_US -p ./.hunspellignore $filename; done | sort | uniq`
+      - export HUNSPELL_FINDINGS=`for filename in chapter/*.md; do hunspell -l -d de_DE_neu_frami,en_US -p ./.hunspellignore $filename; done | sort | uniq`
       - echo $HUNSPELL_FINDINGS
       - test "$HUNSPELL_FINDINGS" == ""
     allow_failure: true
@@ -29,7 +29,7 @@ pandoc_latexmk:
     image: fastexitlane/hunspell:latest
     stage: test
     script:
-      - export HUNSPELL_FINDINGS=`for filename in appendix/*.tex; do hunspell -l -d de_DE_neu,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
+      - export HUNSPELL_FINDINGS=`for filename in appendix/*.tex; do hunspell -l -d de_DE_neu_frami,en_US -p ./.hunspellignore -t $filename; done | sort | uniq`
       - echo $HUNSPELL_FINDINGS
       - test "$HUNSPELL_FINDINGS" == ""
     allow_failure: true
