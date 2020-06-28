@@ -10,7 +10,7 @@ latexmk:
       - main*.pdf
     expire_in: 2d
   script:
-    - latexmk main.tex
+    - ./build.sh
     - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
     - mv main.pdf main@$ci_commit_sha_short.pdf
 

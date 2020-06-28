@@ -11,8 +11,7 @@ pandoc_latexmk:
       - main*.pdf
     expire_in: 2d
   script:
-    - pandoc --filter pandoc-crossref --filter pandoc-citeproc -M cref=true --top-level-division=chapter --bibliography library/library.bib --biblatex -o chapter/out.tex chapter/*.md
-    - latexmk main.tex
+    - ./build.sh pandoc
     - ci_commit_sha_short=`git rev-parse --short $CI_COMMIT_SHA`
     - mv main.pdf main@$ci_commit_sha_short.pdf
 
