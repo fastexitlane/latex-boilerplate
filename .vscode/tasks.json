@@ -6,7 +6,7 @@
         {
             "label": "latexmk",
             "type": "shell",
-            "command": "latexmk -latexoption=\"-shell-escape\" main.tex",
+            "command": "${workspaceFolder}/build.sh",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -17,17 +17,8 @@
         {
             "label": "clean",
             "type": "shell",
-            "command": "latexmk -C; if [ -f chapter/out.tex ]; then rm chapter/out.tex; fi"
-        },
-        {
-            "label": "pandoc",
-            "type": "shell",
-            "command": [
-                "pandoc --filter pandoc-crossref --filter pandoc-citeproc ",
-                "-M cref=true --top-level-division=chapter ",
-                "--bibliography library/library.bib --biblatex ",
-                "-o chapter/out.tex chapter/*.md"
-            ]
+            "command": "${workspaceFolder}/build.sh clean",
+            "group": "none",
         }
     ]
 }
