@@ -13,6 +13,7 @@ chapter/out.md
 *.iml
 .sublime-project
 .sublime-workspace
+.vscode/tasks.json
 
 ## MS Office Temp Files
 ~$*.ppt*
