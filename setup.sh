@@ -17,6 +17,7 @@ then
     cp templates/markdown.gitlab-ci.yml ./.gitlab-ci.yml
     cp templates/markdown.azure-pipelines.yml ./azure-pipelines.yml
     cp templates/markdown.tasks.json ./.vscode/tasks.json
+    cp templates/markdown.main.tex ./main.tex
 elif [ $1 == "latex" ]
 then
     cp templates/latex.gitlab-ci.yml ./.gitlab-ci.yml
