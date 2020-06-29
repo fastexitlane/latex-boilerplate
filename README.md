@@ -32,8 +32,9 @@ If you want to use the workflow on GitLab, but with own hardware, make sure your
 If you know what you're doing, simply start adding your content files in `chapter/` as LaTex `\chapter`s and `\input` them into `main.tex`.
 You can then run the build using VS Code preconfigured tasks or using `build.sh`. 
 
-For Markdown, add your content as `*.md` files in `chapter/` and prefix them with ascending numbers.
+For Markdown, add your content as `*.md` files in `chapter/` and prefix them with ascending numbers (to keep chapter sequence).
 You shouldn't need to `\input` or configure anything else, as the files are concatenated automatically at build time.
+Run `build.sh pandoc` to build your PDF.
 
 If you do not know what you're doing or get into trouble - or want to use the **Markdown Workflow**, you may want to consider the [wiki](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/home) ;-)
 
