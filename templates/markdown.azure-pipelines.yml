@@ -22,10 +22,8 @@ stages:
     jobs:
     - job: pandoc_latexmk
       steps:
-        - script: pandoc --filter pandoc-crossref --filter pandoc-citeproc -M cref=true --top-level-division=chapter --bibliography library/library.bib --biblatex -o chapter/out.tex chapter/*.md
-          displayName: Convert Markdown Files to LaTex
-        - script: latexmk main.tex
-          displayName: Execute LaTex Build
+        - script: ./build.sh pandoc
+          displayName: Run Build Script with Pandoc Option
         - task: PublishBuildArtifacts@1
           inputs:
             ArtifactName: main.pdf

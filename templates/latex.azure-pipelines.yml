@@ -23,8 +23,8 @@ stages:
     - job: latexmk
       container: fastexitlane/pandoc-latex:latest
       steps:
-      - script: latexmk main.tex
-        displayName: Execute LaTex Build
+      - script: ./build.sh
+        displayName: Run Build Script
       - task: PublishBuildArtifacts@1
         inputs:
           ArtifactName: main.pdf

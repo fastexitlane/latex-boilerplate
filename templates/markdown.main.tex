@@ -1,0 +1,80 @@
+% Makros
+\newcommand{\dokumententyp}{Dokumententyp}
+\newcommand{\abgabedatum}{\today} 
+\newcommand{\ort}{Ort} 
+\newcommand{\dokumententitel}{Titel}
+\newcommand{\dokumentenuntertitel}{Untertitel}
+\newcommand{\dokumentenautor}{Autor}
+\newcommand{\matrikelnr}{Matrikel-Nr.}
+\newcommand{\dokumentenautoradresse}{Adresse}
+\newcommand{\dokumentenpruefer}{Prüfer}
+\newcommand{\studiengang}{Studiengang}
+\newcommand{\studiengruppe}{Studiengruppe}
+\newcommand{\institution}{Institution}
+
+% config
+\input{config.tex}
+
+\begin{document}
+  %%%%%%%%%%%%%%%%%%%%%%%%%
+  %% document title page %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%
+  \input{additionals/title.tex}
+
+  %%%%%%%%%%%%%
+  %% indexes %%
+  %%%%%%%%%%%%%
+  \pagenumbering{Roman}
+
+  % disclosure statement - uncomment if needed
+  % \input{additionals/disclosure.tex}
+  % \newpage
+
+  % executive summary - uncomment if needed
+  % \input{additionals/executive_summary.tex}
+  % \newpage
+
+  % table of contents
+  \tableofcontents
+  \newpage
+
+  % acronyms
+  \input{additionals/acronyms.tex}
+  \newpage
+
+  % list of figures
+  \listoffigures
+  \newpage
+
+  % list of tables
+  \listoftables
+  \newpage
+
+  % list of listings
+  \listoflistings
+  \newpage
+
+  %%%%%%%%%%%%%
+  %% content %%
+  %%%%%%%%%%%%%
+  \pagenumbering{arabic}
+
+  % when using pandoc workflow, we only need to include the build output
+  \input{chapter/out.tex}
+  \newpage
+
+  %%%%%%%%%%%%%
+  %% closing %%
+  %%%%%%%%%%%%%
+  % list of references
+  \input{additionals/references.tex}
+  \newpage
+
+  % appendix - uncomment if needed
+  % \input{appendix/appendix.tex}
+  % \newpage
+
+  % affirmation
+  \input{additionals/affirmation.tex}
+
+\end{document}
