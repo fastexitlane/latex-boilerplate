@@ -25,7 +25,7 @@ git pull boilerplate master
 git remote remove boilerplate
 ```
 
-In order to setup the repo for CI / CD on GitLab and Azurre DevOps, as well as VS Code integration, run `setup.sh latex` or `setup.sh markdown`, depending in which workflow you want to use.
+In order to setup the repo for CI / CD on GitLab and Azure DevOps, as well as VS Code integration, run `setup.sh latex` or `setup.sh markdown`, depending in which workflow you want to use.
 CI will use Dockerized builds by default.
 If you want to use the workflow on GitLab, but with own hardware, make sure your GitLab CI meets the [Basic Requirements](https://gitlab.com/fastexitlane/latex-boilerplate/wikis/GitLab-CI#basic-requirements).
 
