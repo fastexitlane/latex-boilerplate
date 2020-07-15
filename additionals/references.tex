@@ -5,6 +5,10 @@
 \defbibheading{book}{\section*{Monographien}}
 \defbibheading{article}{\section*{Beiträge in Zeitungen und Zeitschriften}}
 \defbibheading{incollection}{\section*{Beiträge in Sammelbänden}}
+\defbibfilter{incollection}{
+    type=incollection or
+    type=inbook
+}
 \defbibheading{paper}{\section*{Papers}}
 \defbibfilter{paper}{
     type=inproceedings or
@@ -29,7 +33,7 @@
 
 \printbibliography[heading=book,type=book]
 \printbibliography[heading=article,type=article]
-\printbibliography[heading=incollection,type=incollection]
+\printbibliography[heading=incollection,filter=incollection]
 \printbibliography[heading=paper,filter=paper]
 \printbibliography[heading=online,type=online]
 \printbibliography[heading=jurisdiction,keyword=jurisdiction]
