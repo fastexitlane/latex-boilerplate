@@ -9,7 +9,7 @@ then
 fi
 
 # run pandoc
-if [ $1 == "pandoc"]
+if [ $1 == "pandoc" ]
 then
     cat chapter/*.md > chapter/out.md
     pandoc --filter pandoc-citeproc --filter pandoc-crossref \
