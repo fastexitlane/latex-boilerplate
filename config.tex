@@ -21,6 +21,22 @@
   bottom=25mm
 ]{geometry}
 
+% Anhang inklusive Anhangsverzeichnis
+\usepackage{titletoc}
+\newenvironment{custom_appendix}{%
+  \renewcommand{\thechapter}{\MakeUppercase{\Alph{chapter}}}%
+  \setcounter{chapter}{1}
+  \addchap{Anhang}
+  \startcontents[sections]
+  \section*{Anhangsverzeichnis}
+  \printcontents[sections]{l}{1}{\setcounter{tocdepth}{2}}
+  \newpage
+}{
+  \stopcontents[sections]
+  \renewcommand{\thechapter}{\arabic{chapter}}%
+  \setcounter{chapter}{1}
+} 
+
 % Reduzierung der Abstände zwischen Überschriften und Text
 \RedeclareSectionCommand[afterskip=.0001\baselineskip]{section}
 \RedeclareSectionCommand[afterskip=.0001\baselineskip]{subsection}
