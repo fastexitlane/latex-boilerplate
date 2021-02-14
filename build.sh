@@ -12,7 +12,7 @@ fi
 if [ $1 == "pandoc" ]
 then
     cat chapter/*.md > chapter/out.md
-    pandoc --citeproc --filter pandoc-crossref \
+    pandoc --lua-filter templates/germanquotes.lua --citeproc --filter pandoc-crossref \
         -M cref=true --top-level-division=chapter \
         --bibliography library/library.bib --biblatex \
         -o chapter/out.tex chapter/out.md
