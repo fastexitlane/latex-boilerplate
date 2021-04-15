@@ -25,6 +25,10 @@
 \usepackage{tocvsec2}
 \usepackage{titletoc}
 \newenvironment{custom_appendix}{%
+  % normale Zeilenabstände
+  \singlespacing
+  % keine Einträge mehr im Abbildungs-/Tabellenverzeichnis
+  \captionsetup{list=no}
   % ab hier keine Einträge mehr im Inhaltsverzeichnis - dafür haben wir das Anhangverzeichnis
   \addtocontents{toc}{\string\setcounter{tocdepth}{0}}
   \renewcommand{\thechapter}{\MakeUppercase{\Alph{chapter}}}%
@@ -37,7 +41,7 @@
   \newpage
 }{
   
-  %\stopcontents
+  \stopcontents
   \renewcommand{\thechapter}{\arabic{chapter}}%
   \setcounter{chapter}{1}
 }
