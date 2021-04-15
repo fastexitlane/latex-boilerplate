@@ -81,6 +81,9 @@
 % Für die Befehle \toprule, \midrule und \bottomrule, z.B. in Tabellen 
 \usepackage{booktabs}
 
+\usepackage[table]{xcolor}
+\definecolor{tableshadow}{RGB}{240,240,240}
+
 % Erlaubt die Benutzung von Farben
 \usepackage{color}
 
@@ -229,3 +232,18 @@
 % Pandoc Integration
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% schickere \quotes
+\usepackage{framed}
+\renewenvironment{quote}{
+  \FrameSep3pt
+  \def\FrameCommand{%
+    \hspace{12pt} % defaults to font size
+    {\color{black}\vrule width \heavyrulewidth}%
+    {\color{tableshadow}\vrule width 3pt}%
+    \colorbox{tableshadow}%
+  }
+  \vspace{-.25\topsep}
+  \MakeFramed{\advance\hsize-\width\FrameRestore}
+}
+{\endMakeFramed \vspace{-.75\topsep}}
