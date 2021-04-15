@@ -22,20 +22,25 @@
 ]{geometry}
 
 % Anhang inklusive Anhangsverzeichnis
+\usepackage{tocvsec2}
 \usepackage{titletoc}
 \newenvironment{custom_appendix}{%
+  % ab hier keine Einträge mehr im Inhaltsverzeichnis - dafür haben wir das Anhangverzeichnis
+  \addtocontents{toc}{\string\setcounter{tocdepth}{0}}
   \renewcommand{\thechapter}{\MakeUppercase{\Alph{chapter}}}%
   \setcounter{chapter}{1}
   \addchap{Anhang}
-  \startcontents[sections]
+  \startcontents
   \section*{Anhangsverzeichnis}
-  \printcontents[sections]{l}{1}{\setcounter{tocdepth}{2}}
+  \printcontents{l}{1}{\setcounter{tocdepth}{2}}
+  \addtocontents{ptc}{\string\setcounter{tocdepth}{2}}
   \newpage
 }{
-  \stopcontents[sections]
+  
+  %\stopcontents
   \renewcommand{\thechapter}{\arabic{chapter}}%
   \setcounter{chapter}{1}
-} 
+}
 
 % Reduzierung der Abstände zwischen Überschriften und Text
 \RedeclareSectionCommand[afterskip=.0001\baselineskip]{section}
