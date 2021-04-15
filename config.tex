@@ -69,6 +69,12 @@
 % Tabellenzellen über mehrere Reihen oder Spalten
 \usepackage{multirow}
 
+% \multicolumn vernünftig in tabularx nutzen - siehe https://tex.stackexchange.com/questions/236155/tabularx-and-multicolumn
+\newcommand{\tabularxmulticolumn}[3] 
+    {\multicolumn{#1}
+                 {>{\hsize=\dimexpr#1\hsize+#1\tabcolsep+\arrayrulewidth\relax}#2}
+                 {#3}}
+
 % Möglichkeit für Zeilenumbrüche in Tabellen
 \usepackage{makecell}
 
@@ -76,13 +82,23 @@
 \usepackage{rotating}
 
 % mehr Zeilenabstand in Tabellen
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.4}
 
 % Für die Befehle \toprule, \midrule und \bottomrule, z.B. in Tabellen 
 \usepackage{booktabs}
+% vertikale Abstände entfernen - siehe https://tex.stackexchange.com/questions/381718/how-to-remove-the-space-after-midrule-in-a-table
+\aboverulesep = 0mm
+\belowrulesep = 0mm
 
+% mehrseitige Tabellen
+\usepackage{longtable}
+
+% Farben in Tabellenzeilen
 \usepackage[table]{xcolor}
 \definecolor{tableshadow}{RGB}{240,240,240}
+
+% Tabellen aus CSV
+\usepackage{csvsimple}
 
 % Erlaubt die Benutzung von Farben
 \usepackage{color}
@@ -101,6 +117,9 @@
 
 % Listen ohne Abstände \begin{compactlist}...\end{compactlist}
 \usepackage{paralist}
+
+% bessere Konfiguration + Referenzen auf enums und items
+\usepackage{enumitem}
 
 % Ausgabe der aktuellen Uhrzeit für die Draft-Versionen
 \usepackage{datetime}
@@ -146,7 +165,7 @@
     ibidpage=true,
     citetracker=true
 ]{biblatex}
-\bibliography{library/library}
+\addbibresource{library/library.bib}
 \DeclareLabeldate{
   \field{year}
   \field{date}
@@ -232,6 +251,12 @@
 % Pandoc Integration
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% PDF Input
+\usepackage{pdfpages}
+
+% Seiten im Querformat - wir wollen nicht pdflscape benutzen, da es komplette Seiten im PDF ins Querformat legt, was zu Problemen beim Druck führt (siehe https://texblog.org/2007/11/10/landscape-in-latex/)
+\usepackage{lscape}
 
 % schickere \quotes
 \usepackage{framed}
